@@ -6,8 +6,8 @@ import { RepositoryWorkers } from './repository-workers'
 import sentryStream from 'bunyan-sentry-stream'
 import { RepositoryReference, PullRequestReference } from './github-models'
 import myAppId from './myappid'
-import { GitHubAPI } from 'probot/lib/github'
-import { rawGraphQLQuery } from './github-utils'
+//import { GitHubAPI } from 'probot/lib/github'
+//import { rawGraphQLQuery } from './github-utils'
 
 async function getWorkerContext (options: {app: Application, context: Context, installationId: number}): Promise<WorkerContext> {
   const { app, context, installationId } = options
@@ -104,6 +104,7 @@ export = (app: Application) => {
     })
   }
 
+  /*
   async function getAssociatedPullRequests (github: GitHubAPI, { owner, repo, headRefOid }: { owner: String, repo: string, headRefOid: string }): Promise<{ owner: string, repo: string, number: number }[]> {
     const result = await rawGraphQLQuery(github, `
       query($owner: String!, $repo: String!) {
@@ -157,6 +158,7 @@ export = (app: Application) => {
       return handlePullRequests(app, context, context.payload.installation.id, repositoryReference, [pullRequest.number])
     }))
   })
+  */
 
   app.on([
     'pull_request.opened',
