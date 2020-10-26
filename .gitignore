@@ -4,6 +4,8 @@ npm-debug.log
 .env
 coverage
 lib
+.data/
+Dockerfile
 
 .vscode/*
 !.vscode/settings.json
